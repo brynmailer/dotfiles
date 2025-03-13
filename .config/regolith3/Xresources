@@ -1,12 +1,19 @@
-!regolith.wallpaper.file: /usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml
-!regolith.lockscreen.wallpaper.file: /usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml
-regolith.wallpaper.file: /home/bryn/Pictures/Wallpapers/8nxOsmfS.jpeg
-regolith.lockscreen.wallpaper.file: /home/bryn/Pictures/Wallpapers/8nxOsmfS.jpeg
-!regolith.look.path: /usr/share/regolith-look/gruvbox
+! Wallpaper
+regolith.wallpaper.file: ~/Pictures/Wallpapers/asian-dragon.jpg
+regolith.wallpaper.options: scaled
 
-gnome.terminal.scrollbar: never
-gnome.terminal.use-transparent-background: true
-gnome.terminal.background-transparency-percent: 10
+! Gaps
+wm.gaps.smart: off
+wm.gaps.outer.size: 5
+wm.gaps.inner.size: 10
+
+! Window
+wm.window.border.size: 2
+
+! Program
+wm.program.launcher.app: rofi -show drun -theme ~/.config/rofi/launchers/type-4/style-9.rasi
+wm.program.launcher.window: rofi -show window -theme ~/.config/rofi/launchers/type-4/style-9.rasi
+wm.program.launcher.cmd: rofi -show run -theme ~/.config/rofi/launchers/type-4/style-9.rasi
+wm.program.file_search: rofi -show filebrowser -theme ~/.config/rofi/launchers/type-4/style-9.rasi
 
 wm.bar.position: bottom
-regolith.look.path: /usr/share/regolith-look/gruvbox

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/bryn/Pictures/Wallpapers/dracolich.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0F1011",
+        "foreground": "#b1b3bd",
+        "cursor": "#b1b3bd"
+    },
+    "colors": {
+        "color0": "#0F1011",
+        "color1": "#39474D",
+        "color2": "#3C5E57",
+        "color3": "#4A5252",
+        "color4": "#606A65",
+        "color5": "#8C7661",
+        "color6": "#A39072",
+        "color7": "#b1b3bd",
+        "color8": "#7b7d84",
+        "color9": "#39474D",
+        "color10": "#3C5E57",
+        "color11": "#4A5252",
+        "color12": "#606A65",
+        "color13": "#8C7661",
+        "color14": "#A39072",
+        "color15": "#b1b3bd"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/bryn/Pictures/Wallpapers/asian-dragon.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#171517",
+        "foreground": "#c5c4c5",
+        "cursor": "#c5c4c5"
+    },
+    "colors": {
+        "color0": "#171517",
+        "color1": "#771537",
+        "color2": "#992555",
+        "color3": "#ba1e45",
+        "color4": "#d02b5b",
+        "color5": "#e4567d",
+        "color6": "#df76a8",
+        "color7": "#c5c4c5",
+        "color8": "#514f51",
+        "color9": "#771537",
+        "color10": "#992555",
+        "color11": "#ba1e45",
+        "color12": "#d02b5b",
+        "color13": "#e4567d",
+        "color14": "#df76a8",
+        "color15": "#c5c4c5"
+    }
+}
