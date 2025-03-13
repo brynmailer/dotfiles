@@ -1,0 +1,12 @@
+!regolith.wallpaper.file: /usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml
+!regolith.lockscreen.wallpaper.file: /usr/share/desktop-base/joy-inksplat-theme/wallpaper/gnome-background.xml
+regolith.wallpaper.file: /home/bryn/Pictures/Wallpapers/8nxOsmfS.jpeg
+regolith.lockscreen.wallpaper.file: /home/bryn/Pictures/Wallpapers/8nxOsmfS.jpeg
+!regolith.look.path: /usr/share/regolith-look/gruvbox
+
+gnome.terminal.scrollbar: never
+gnome.terminal.use-transparent-background: true
+gnome.terminal.background-transparency-percent: 10
+
+wm.bar.position: bottom
+regolith.look.path: /usr/share/regolith-look/gruvbox
