@@ -1,5 +1,6 @@
 # Always show borders
 hide_edge_borders none
 
-# Set default border thickness
-default_border pixel 2
+# Set window border
+new_window pixel 3
+for_window [class=".*"] border pixel 3
