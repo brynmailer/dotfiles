@@ -1,0 +1,5 @@
+# Always show borders
+hide_edge_borders none
+
+# Set default border thickness
+default_border pixel 2

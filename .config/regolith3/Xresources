@@ -1,18 +1,10 @@
-! Get colors from Pywal
-#include "/home/bryn/.cache/wal/colors-xdefine.Xresources"
+! Wallpapers
+#define wallpaper /home/bryn/Pictures/Wallpapers/asian-dragon.jpg
 
-! Wallpaper
-regolith.lockscreen.wallpaper.file: /home/bryn/Pictures/Wallpapers/asian-dragon.jpg
+regolith.lockscreen.wallpaper.file: wallpaper
 regolith.lockscreen.wallpaper.options: scaled
-regolith.wallpaper.file: /home/bryn/Pictures/Wallpapers/asian-dragon.jpg
+regolith.wallpaper.file: wallpaper
 regolith.wallpaper.options: scaled
-
-! Border
-wm.window.border.size: 2
-
-wm.client.focused.color.border: color9
-wm.client.focused.color.indicator: color4
-wm.client.focused.color.child_border: color9
 
 ! Gaps
 wm.gaps.smart: off
@@ -22,8 +14,10 @@ wm.gaps.inner.size: 10
 ! Bar
 wm.bar.position: bottom
 
-! Program
-wm.program.launcher.app: rofi -show drun -theme ~/.config/rofi/launchers/type-4/style-9.rasi
-wm.program.launcher.window: rofi -show window -theme ~/.config/rofi/launchers/type-4/style-9.rasi
-wm.program.launcher.cmd: rofi -show run -theme ~/.config/rofi/launchers/type-4/style-9.rasi
-wm.program.file_search: rofi -show filebrowser -theme ~/.config/rofi/launchers/type-4/style-9.rasi
+! Rofi
+#define rofi_theme ~/.config/rofi/launchers/type-4/style-9.rasi
+
+wm.program.launcher.app: rofi -show drun -theme rofi_theme
+wm.program.launcher.window: rofi -show window -theme rofi_theme
+wm.program.launcher.cmd: rofi -show run -theme rofi_theme
+wm.program.file_search: rofi -show filebrowser -theme rofi_theme
