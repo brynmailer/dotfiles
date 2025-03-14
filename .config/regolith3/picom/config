@@ -73,24 +73,24 @@ shadow-opacity = 0.8;
 # (most applications are fine, only apps that do weird things with xshapes or argb are affected).
 # This list includes all the affected apps I found in my testing. The "! name~=''" part excludes shadows on any "Unknown" windows, this prevents a visual glitch with the XFWM alt tab switcher.
 shadow-exclude = [
-    "! name~=''",
-    "name = 'Notification'",
-    "name = 'Plank'",
-    "name = 'Docky'",
-    "name = 'Kupfer'",
-    "name = 'xfce4-notifyd'",
-    "name *= 'compton'",
-    "name *= 'picom'",
-    "name *= 'cpt_frame_window'",
-    "name *= 'cpt_frame_xcb_window'",
-    "name *= 'wrapper-2.0'",
-    "class_g = 'Conky'",
-    "class_g = 'Kupfer'",
-    "class_g = 'Synapse'",
-    "class_g ?= 'Notify-osd'",
-    "class_g ?= 'Cairo-dock'",
-    "_GTK_FRAME_EXTENTS@:c",
-    "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
+  "! name~=''",
+  "name = 'Notification'",
+  "name = 'Plank'",
+  "name = 'Docky'",
+  "name = 'Kupfer'",
+  "name = 'xfce4-notifyd'",
+  "name *= 'compton'",
+  "name *= 'picom'",
+  "name *= 'cpt_frame_window'",
+  "name *= 'cpt_frame_xcb_window'",
+  "name *= 'wrapper-2.0'",
+  "class_g = 'Conky'",
+  "class_g = 'Kupfer'",
+  "class_g = 'Synapse'",
+  "class_g ?= 'Notify-osd'",
+  "class_g ?= 'Cairo-dock'",
+  "_GTK_FRAME_EXTENTS@:c",
+  "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
 ];
 # Avoid drawing shadow on all shaped windows (see also: --detect-rounded-corners)
 shadow-ignore-shaped = false;
@@ -106,6 +106,11 @@ active-opacity = 1;
 frame-opacity = 1;
 inactive-opacity-override = false;
 
+opacity-rule = [
+  "100:class_g = 'firefox_firefox'",
+  "100:class_g = 'Slack'"
+]
+
 # Dim inactive windows. (0.0 - 1.0)
 inactive-dim = 0.03;
 # Do not let dimness adjust based on window opacity.
@@ -117,8 +122,8 @@ inactive-dim-fixed = true;
 # Do not let blur radius adjust based on window opacity.
 blur-background-fixed = false;
 blur-background-exclude = [
-    "window_type = 'dock'",
-    "window_type = 'desktop'"
+  "window_type = 'dock'",
+  "window_type = 'desktop'"
 ];
 
 #################################
@@ -140,7 +145,7 @@ fade-out-step = 0.03;
 
 # Specify a list of conditions of windows that should not be faded.
 fade-exclude = [
-    "name *= 'ilia'"
+  "name *= 'ilia'"
 ];
 
 #################################
@@ -196,26 +201,25 @@ xinerama-shadow-crop = true;
 
 wintypes:
 {
-    tooltip =
-    {
-        # fade: Fade the particular type of windows.
-        fade = true;
-        # shadow: Give those windows shadow
-        shadow = false;
-        # opacity: Default opacity for the type of windows.
-        opacity = 0.85;
-        # focus: Whether to always consider windows of this type focused.
-        focus = true;
-    };
-    dock = { shadow = true; }
-    dnd = { shadow = false; }
-    popup_menu = {
-        opacity = 1.0;
-        shadow = false;
-        fade = false;
-    }
-    dropdown_menu = {
-        opacity = 1.0;
-        fade = false;
-    }
+  tooltip = {
+    # fade: Fade the particular type of windows.
+    fade = true;
+    # shadow: Give those windows shadow
+    shadow = false;
+    # opacity: Default opacity for the type of windows.
+    opacity = 0.85;
+    # focus: Whether to always consider windows of this type focused.
+    focus = true;
+  };
+  dock = { shadow = true; }
+  dnd = { shadow = false; }
+  popup_menu = {
+    opacity = 1.0;
+    shadow = false;
+    fade = false;
+  }
+  dropdown_menu = {
+    opacity = 1.0;
+    fade = false;
+  }
 };
