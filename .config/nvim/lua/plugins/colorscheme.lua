@@ -67,7 +67,8 @@ return {
             DiagnosticError = { fg = colors.color1 },
             DiagnosticWarn = { fg = colors.color3 },
             DiagnosticInfo = { fg = colors.color4 },
-            DiagnosticHint = { fg = colors.color6 },          }
+            DiagnosticHint = { fg = colors.color6 },
+          }
         end,
         { replace = false }
       )

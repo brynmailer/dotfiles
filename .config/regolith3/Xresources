@@ -1,10 +1,12 @@
 ! Wallpapers
-#define wallpaper /home/bryn/Pictures/Wallpapers/asian-dragon.jpg
-
-regolith.lockscreen.wallpaper.file: wallpaper
+regolith.lockscreen.wallpaper.file: ~/Pictures/Wallpapers/asian-dragon.jpg
 regolith.lockscreen.wallpaper.options: scaled
-regolith.wallpaper.file: wallpaper
+regolith.wallpaper.file: ~/Pictures/Wallpapers/asian-dragon.jpg
 regolith.wallpaper.options: scaled
+
+! Border sizes
+wm.window.border.size: 2
+wm.floatingwindow.border.size: 2
 
 ! Gaps
 wm.gaps.smart: off
