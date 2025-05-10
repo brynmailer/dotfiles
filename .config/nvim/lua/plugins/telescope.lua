@@ -16,7 +16,7 @@ return {
       vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope live grep" })
       vim.keymap.set("n", "<leader>pg", builtin.grep_string, { desc = "Telescope grep string" })
 
-      vim.keymap.set("n", "<space>fb", function()
+      vim.keymap.set("n", "<space>pv", function()
         telescope.extensions.file_browser.file_browser()
       end)
     end,
