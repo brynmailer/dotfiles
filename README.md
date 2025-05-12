@@ -31,7 +31,7 @@ I use [GNU Stow](https://www.gnu.org/software/stow/) to allow me to separate the
 pacman -S stow
 ```
 
-Nothing within this repository is tied to this method of config management though. If you do choose to use another process, please be aware that the folder structure matters. The root of this repository is equivalent to the home directory. Eg `.config/nvim/init.lua` should be placed at `~/.config/nvim/init.lua`.
+Nothing within this repository is tied to this method of config management though. If you do choose to use another process, please be aware that the folder structure matters. The root of this repository is equivalent to the home directory. Eg `dotfiles/.config/nvim/init.lua` should be placed at `~/.config/nvim/init.lua`.
 
 ## Install
 
@@ -42,5 +42,5 @@ Nothing within this repository is tied to this method of config management thoug
    ```
 2. Create symlinks in home directory
    ```sh
-   stow .
+   stow -t ~ .
    ```
