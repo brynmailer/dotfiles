@@ -1,6 +1,6 @@
 # My dotfiles
 
-![Screen shot of my terminal](https://example.com)
+![Screen shot](https://example.com)
 
 My configuration for:
 - Hyprland
@@ -22,7 +22,7 @@ Uses [Flavours](https://github.com/Misterio77/flavours) to apply a custom [Base1
 
 ## Set up
 
-**Warning:** I haven't yet gotten around to writing an install script. As a result, you will have to install the various packages/libs/applications, as well as their dependencies, yourself in order to get this set up. Good luck :thumbsup:
+**Warning:** I haven't yet gotten around to writing an install script. As a result, you will have to install the various packages/libs/applications (and their dependencies) yourself in order to get this set up. Good luck :thumbsup:
 
 ### Prerequisites
 
