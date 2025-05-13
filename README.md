@@ -42,5 +42,5 @@ Nothing within this repository is tied to this method of config management thoug
    ```
 2. Create symlinks in home directory
    ```sh
-   stow -t ~ .
+   stow --dotfiles -t ~ .
    ```
