@@ -1,0 +1,19 @@
+session_name: 'grassrootz-public'
+windows:
+- focus: 'true'
+  layout: 07d3,279x92,0,0{200x92,0,0,1,78x92,201,0[78x46,201,0,3,78x45,201,47,4]}
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+    - cd ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
+    - nvim .
+  - shell_command:
+    - cd ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
+    - clear
+    - dotnet run --urls=https://localhost:44307/
+  - shell_command:
+    - cd ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
+    - clear
+    - npm run debug
+  window_name: main
