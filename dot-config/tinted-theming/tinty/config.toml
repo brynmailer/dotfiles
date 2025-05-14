@@ -1,13 +1,7 @@
 # Global settings
+shell = "fish -c '{}'"
 default-scheme = "base24-solarized-dark-higher-contrast"
 hooks = ["tmux source-file ~/.tmux.conf"]
-
-# Item configurations
-[[items]]
-name = "tinted-shell"
-path = "https://github.com/tinted-theming/tinted-shell"
-themes-dir = "scripts"
-hook = "source ~/.config/fish/config.fish"
 
 [[items]]
 name = "tinted-terminal"
@@ -15,3 +9,8 @@ path = "https://github.com/tinted-theming/tinted-terminal"
 themes-dir = "themes/kitty"
 supported-systems = ["base16", "base24"]
 hook = "kitten @ load-config"
+
+[[items]]
+name = "tinted-fzf"
+path = "https://github.com/tinted-theming/tinted-fzf"
+themes-dir = "fish"
