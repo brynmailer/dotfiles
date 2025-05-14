@@ -14,3 +14,9 @@ hook = "kitten @ load-config"
 name = "tinted-fzf"
 path = "https://github.com/tinted-theming/tinted-fzf"
 themes-dir = "fish"
+
+[[items]]
+name = "base16-dunst"
+path = "https://github.com/tinted-theming/base16-dunst"
+themes-dir = "themes"
+hook = "cat ~/.config/dunst/dunstrc.local %f > ~/.config/dunst/dunstrc && systemctl --user restart dunst"
