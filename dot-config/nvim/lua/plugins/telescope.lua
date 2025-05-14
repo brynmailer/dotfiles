@@ -29,6 +29,7 @@ return {
         },
         extensions = {
           file_browser = {
+            path = "%:p:h",
             hijack_netrw = true,
             display_stat = false,
             hidden = true,
