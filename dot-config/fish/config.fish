@@ -4,7 +4,7 @@ set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -x NVM_DIR $XDG_CONFIG_HOME/nvm
 
 
-# Fish compatibility functions for NVM
+# Fish compatibility wrapper for NVM
 function nvm
   set -x current_path $(mktemp)
 	bash -c "source $NVM_DIR/nvm.sh --no-use; nvm $argv; dirname \$(nvm which current) > $current_path"
@@ -12,6 +12,7 @@ function nvm
 	rm $current_path
 end
 
+# Use Node version in .nvmrc
 function load_nvm --on-variable PWD
 	set -l default_node_version $(nvm version default)
 	set -l node_version $(nvm version)
