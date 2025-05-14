@@ -13,7 +13,7 @@ function nvm
 end
 
 # Use Node version in .nvmrc
-function load_nvm --on-variable PWD
+function load_nvm
 	set -l default_node_version $(nvm version default)
 	set -l node_version $(nvm version)
 	set -l nvmrc_path $(bash -c "source $NVM_DIR/nvm.sh --no-use; nvm_find_nvmrc")
