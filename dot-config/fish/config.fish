@@ -1,8 +1,9 @@
 set -g fish_greeting
 
+fish_add_path ~/.local/bin
+
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -x NVM_DIR $XDG_CONFIG_HOME/nvm
-
 
 # Fish compatibility wrapper for NVM
 function nvm
