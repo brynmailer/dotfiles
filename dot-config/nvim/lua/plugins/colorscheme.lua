@@ -1,13 +1,16 @@
 return {
   {
-    "RRethy/base16-nvim",
+    "tinted-theming/tinted-nvim",
     config = function()
-      local base16 = require("base16-colorscheme")
+      local tinted = require("tinted-colorscheme")
 
-      base16.with_config({
-        telescope = false,
+      tinted.with_config({
+        highlights = {
+          telescope_borders = true,
+        },
       })
+
+      tinted.setup()
     end,
-    priority = 1000,
   },
 }

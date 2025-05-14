@@ -4,6 +4,7 @@ fish_add_path ~/.local/bin
 
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -x NVM_DIR $XDG_CONFIG_HOME/nvm
+set -x TINTED_TMUX_OPTION_STATUSBAR 1
 
 # Fish compatibility wrapper for NVM
 function nvm
