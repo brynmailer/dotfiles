@@ -1,14 +1,34 @@
 set -g fish_greeting
 
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+set -x NVM_DIR $XDG_CONFIG_HOME/nvm
 
-# Execute Node Version Manager via Bash
+
+# Fish compatibility functions for NVM
 function nvm
-  set -x NVM_DIR $XDG_CONFIG_HOME/nvm
-  if test -x $NVM_DIR/nvm.sh
-    bash -c "source $NVM_DIR/nvm.sh; nvm $argv"
-  end
+  set -x current_path $(mktemp)
+	bash -c "source $NVM_DIR/nvm.sh --no-use; nvm $argv; dirname \$(nvm which current) > $current_path"
+	fish_add_path -m $(cat $current_path)
+	rm $current_path
 end
+
+function load_nvm --on-variable PWD
+	set -l default_node_version $(nvm version default)
+	set -l node_version $(nvm version)
+	set -l nvmrc_path $(bash -c "source $NVM_DIR/nvm.sh --no-use; nvm_find_nvmrc")
+	if test -n "$nvmrc_path"
+		set -l nvmrc_node_version $(nvm version (cat $nvmrc_path))
+		if test "$nvmrc_node_version" = "N/A"
+			nvm install $(cat $nvmrc_path)
+		else if test "$nvmrc_node_version" != "$node_version"
+			nvm use $nvmrc_node_version
+		end
+	else if test "$node_version" != "$default_node_version"
+		echo "Reverting to default Node version"
+		nvm use default
+	end
+end
+
 
 if status is-interactive
   fish_vi_key_bindings
