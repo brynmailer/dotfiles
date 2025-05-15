@@ -4,6 +4,7 @@ fish_add_path ~/.local/bin
 
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -x NVM_DIR $XDG_CONFIG_HOME/nvm
+set -x MANPAGER "nvim +Man!"
 set -x TINTED_TMUX_OPTION_STATUSBAR 1
 
 # Fish compatibility wrapper for NVM
@@ -32,7 +33,15 @@ function load_nvm
 	end
 end
 
+# Fzf tmuxp workspaces
+function open-workspace
+  if test "$TERM_PROGRAM" = "tmux"
+    fzf-workspaces
+  end
+end
 
 if status is-interactive
   fish_vi_key_bindings
+
+  bind -M insert ctrl-f open-workspace
 end
