@@ -35,7 +35,7 @@ end
 
 # Fzf tmuxp workspaces
 function open-workspace
-  if test "$TERM_PROGRAM" = "tmux"
+  if test "$TERM_PROGRAM" != "tmux"
     fzf-workspaces
   end
 end
