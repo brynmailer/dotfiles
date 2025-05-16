@@ -2,17 +2,14 @@ session_name: dotfiles
 windows:
 - focus: 'true'
   layout: 57da,279x92,0,0{135x92,0,0[135x46,0,0,12,135x45,0,47,13],143x92,136,0,9}
+  window_name: main
+  start_directory: ~/Projects/dotfiles
   options: {}
   panes:
-  - shell_command:
-    - cd ~/Projects/dotfiles
-    - clear
+  - pane
   - shell_command:
     - cd ~
     - clear
   - focus: 'true'
     shell_command:
-    - cd ~/Projects/dotfiles
-    - clear
     - nvim .
-  window_name: main

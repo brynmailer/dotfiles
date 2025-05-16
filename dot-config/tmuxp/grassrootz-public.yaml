@@ -1,19 +1,18 @@
-session_name: 'grassrootz-public'
+session_name: grassrootz-public
 windows:
 - focus: 'true'
-  layout: 07d3,279x92,0,0{200x92,0,0,1,78x92,201,0[78x46,201,0,3,78x45,201,47,4]}
+  layout: 6781,208x67,0,0,12
+  window_name: main
+  start_directory: ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
+  options: {}
+  panes:
+  - nvim .
+- layout: d4c1,208x67,0,0[208x33,0,0,10,208x33,0,34,11]
+  window_name: servers
+  start_directory: /home/bryn/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-    - cd ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
-    - nvim .
-  - shell_command:
-    - cd ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
-    - clear
     - dotnet run --urls=https://localhost:44307/
-  - shell_command:
-    - cd ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
-    - clear
-    - npm run debug
-  window_name: main
+  - npm run debug
