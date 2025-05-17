@@ -1,15 +1,14 @@
 session_name: grassrootz-public
+start_directory: ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
 windows:
 - focus: 'true'
   layout: 6781,208x67,0,0,12
   window_name: main
-  start_directory: ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
   options: {}
   panes:
   - nvim .
 - layout: d4c1,208x67,0,0[208x33,0,0,10,208x33,0,34,11]
   window_name: servers
-  start_directory: /home/bryn/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
   options: {}
   panes:
   - focus: 'true'
