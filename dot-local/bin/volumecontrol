@@ -35,7 +35,8 @@ notify_mute() {
   if [ "${mute}" == "true" ]; then
     notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/muted.svg" "muted" "${vol}"
   else
-    notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/volume-3.svg" "unmuted" "${vol}"
+    level=$((vol / 34 + 1))
+    notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/volume-${level}.svg" "unmuted" "${vol}"
   fi
 }
 
