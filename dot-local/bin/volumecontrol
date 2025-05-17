@@ -33,10 +33,10 @@ notify_mute() {
   mute=$(pamixer --get-mute | cat)
   vol=$(pamixer --get-volume)
   if [ "${mute}" == "true" ]; then
-    notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/muted.svg" "muted" "${vol}"
+    notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/muted.svg" "Muted" "${vol}"
   else
     level=$((vol / 34 + 1))
-    notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/volume-${level}.svg" "unmuted" "${vol}"
+    notify-send -a "volumecontrol" -r 2 -t 800 -h int:value:"${vol}" -i "${icodir}/volume-${level}.svg" "Unmuted" "${vol}"
   fi
 }
 

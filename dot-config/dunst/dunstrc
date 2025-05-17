@@ -12,9 +12,9 @@ corners = top-left,bottom
 progress_bar_corners = top-left,bottom-right
 offset = (30, 30)
 gap_size = 5
-format = "<b>󰁕 %a</b>\n%s\n<i>%b</i>"
 font = "FiraCode Nerd Font Mono" 10
 default_icon = "~/.config/dunst/icons/bell-badge-low.svg"
+format = "<b>󰁕 %a</b>\n%s\n<i>%b</i>"
 
 [urgency_normal]
 foreground = "#fcceff"
