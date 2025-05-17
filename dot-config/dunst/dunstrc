@@ -2,6 +2,9 @@
 monitor = 1
 frame_width = 2
 background = "#241b26"
+foreground = "#9969d1"
+frame_color = "#9969d1"
+highlight = "#9969d1"
 separator_color = frame
 corner_radius = 5
 progress_bar_corner_radius = 5
@@ -10,12 +13,7 @@ progress_bar_corners = top-left,bottom-right
 offset = (30, 30)
 gap_size = 5
 format = "<b>󰁕 %a</b>\n%s\n<i>%b</i>"
-font = "FiraCode Nerd Font Mono" 9
-
-[urgency_low]
-foreground = "#9969d1"
-frame_color = "#9969d1"
-highlight = "#9969d1"
+font = "FiraCode Nerd Font Mono" 10
 default_icon = "~/.config/dunst/icons/bell-badge-low.svg"
 
 [urgency_normal]
