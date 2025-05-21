@@ -1,123 +1,199 @@
-// -*- mode: json -*-
-
 {
 	"layer": "top",
 	"position": "top",
+  "reload_style_on_change": true,
 
 	"modules-left": [
-    "clock#1",
-    "custom/right-arrow-dark",
-    "custom/right-arrow-light",
-    "clock#2",
-    "custom/right-arrow-dark",
-    "custom/right-arrow-light",
-    "clock#3",
-    "custom/right-arrow-dark"
+		"hyprland/mode",
+		"hyprland/workspaces",
+		"custom/arrow9",
+		"hyprland/window"
 	],
-	"modules-center": [
-    "custom/left-arrow-dark",
-    "hyprland/workspaces",
-    "custom/right-arrow-dark"
-	],
+
 	"modules-right": [
-		"custom/left-arrow-dark",
+		"custom/arrow8",
 		"pulseaudio",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
+		"custom/arrow7",
+		"network",
+		"custom/arrow6",
 		"memory",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
+		"custom/arrow5",
 		"cpu",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
+		"custom/arrow4",
+		"temperature",
+		"custom/arrow3",
 		"battery",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"disk",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-		"tray"
+		"custom/arrow2",
+		"clock#date",
+		"custom/arrow1",
+		"clock#time"
 	],
 
-	"custom/left-arrow-dark": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/left-arrow-light": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-dark": {
-		"format": "",
-		"tooltip": false
-	},
-	"custom/right-arrow-light": {
-		"format": "",
-		"tooltip": false
-	},
+	// Modules
 
-	"hyprland/workspaces": {
-		"disable-scroll": true,
-		"format": "{name}"
-	},
-
-	"clock#1": {
-		"format": "{:%a}",
-		"tooltip": false
-	},
-	"clock#2": {
-		"format": "{:%H:%M}",
-		"tooltip": false
-	},
-	"clock#3": {
-		"format": "{:%d-%m}",
-		"tooltip": false
-	},
-
-	"pulseaudio": {
-		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon}  {volume}%",
-		"format-muted": "MUTE",
-		"format-icons": {
-			"headphones": "",
-			"default": [
-				"",
-				""
-			]
-		},
-		"scroll-step": 5,
-		"on-click": "pamixer -t",
-		"on-click-right": "pavucontrol"
-	},
-	"memory": {
-		"interval": 5,
-		"format": "Mem {}%"
-	},
-	"cpu": {
-		"interval": 5,
-		"format": "CPU {usage:2}%"
-	},
 	"battery": {
+		"interval": 10,
 		"states": {
-			"good": 95,
 			"warning": 30,
 			"critical": 15
 		},
 		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-charging-full": "󰂄 {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
 		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
+			"󰁻",
+			"󰁽",
+			"󰁿",
+			"󰂁",
+			"󰁹"
+		],
+		"tooltip": false
 	},
-	"disk": {
+
+	"clock#time": {
+		"interval": 10,
+		"format": "{:%H:%M}",
+		"tooltip": false
+	},
+
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%e %b %Y}",
+		"tooltip": false
+		//"tooltip-format": "{:%e %B %Y}"
+	},
+
+	"cpu": {
 		"interval": 5,
-		"format": "Disk {percentage_used:2}%",
-		"path": "/"
+		"tooltip": false,
+		"format": "  {usage}%",
+		"format-alt": "  {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
 	},
+
+	"memory": {
+		"interval": 5,
+		"format": "   {used:0.1f}G / {total:0.1f}G",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		},
+		"tooltip": false
+	},
+
+	"network": {
+		"interval": 5,
+		"format-wifi": "   {essid} ({signalStrength}%)",
+		"format-ethernet": "   {ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": "󱂇   {ipaddr}/{cidr}",
+		"tooltip": false
+	},
+
+	"hyprland/mode": {
+		"format": "{}",
+		"tooltip": false
+	},
+
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 30,
+		"tooltip": false
+	},
+
+	"hyprland/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 4,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "󰖁",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["󰕿", "󰖀", "󰕾"]
+		},
+		"scroll-step": 1,
+		"on-click": "volumecontrol m",
+		"tooltip": false
+	},
+
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
 	"tray": {
-		"icon-size": 20
+		"icon-size": 18
+		//"spacing": 10
+	},
+
+	"custom/arrow1": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow2": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow3": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow4": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow5": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow6": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow7": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow8": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow9": {
+		"format": "",
+		"tooltip": false
 	}
 }
+
+// vi:ft=jsonc
