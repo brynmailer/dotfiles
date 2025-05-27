@@ -1,0 +1,11 @@
+session_name: proc-macro-workshop
+start_directory: ~/Projects/proc-macro-workshop
+windows:
+- focus: 'true'
+  window_name: main
+  layout: c50f,279x71,0,0{89x71,0,0[89x35,0,0,5,89x35,0,36,6],189x71,90,0,4}
+  options: {}
+  panes:
+  - pane
+  - focus: 'true'
+    shell_command: nvim .
