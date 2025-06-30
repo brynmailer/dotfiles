@@ -4,17 +4,19 @@
 
 My configuration for:
 - Hyprland
+- UWSM
+- SDDM
 - Waybar
 - Wofi
-- Swaync
+- Dunst
 - Dolphin
 - Fish
 - Kitty
-- Tmux + tmux-sessionizer
+- Tmux + tmuxp
 - Neovim + associated plugins
 - Other less significant things
 
-Uses [Flavours](https://github.com/Misterio77/flavours) to apply a custom [Base16](https://github.com/chriskempson/base16) theme to the system.
+Uses [Tinty](https://github.com/tinted-theming/tinty) to theme the system.
 
 (I use Arch, btw :sunglasses:)
 
