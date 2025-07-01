@@ -2,7 +2,6 @@
 
 @keyframes blink-critical {
 	to {
-		/*color: @white;*/
 		background-color: @critical;
 	}
 }
@@ -35,7 +34,7 @@
 	padding: 0;
 	box-shadow: none;
 	text-shadow: none;
-	icon-shadow: none;
+	-gtk-icon-shadow: none;
 }
 
 /* The whole bar */
@@ -52,7 +51,6 @@
 #clock,
 #cpu,
 #memory,
-#mode,
 #network,
 #pulseaudio,
 #temperature,
@@ -67,7 +65,6 @@
 }
 
 /* Each critical module */
-#mode,
 #memory.critical,
 #cpu.critical,
 #temperature.critical,
@@ -89,12 +86,6 @@
 }
 
 /* And now modules themselves in their respective order */
-
-/* Current sway mode (resize etc) */
-#mode {
-	color: @white;
-	background: @mode;
-}
 
 /* Workspaces stuff */
 #workspaces button {

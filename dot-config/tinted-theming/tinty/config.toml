@@ -14,3 +14,9 @@ hook = "kitten @ load-config"
 name = "tinted-fzf"
 path = "https://github.com/tinted-theming/tinted-fzf"
 themes-dir = "fish"
+
+[[items]]
+name = "base16-rofi"
+path = "https://github.com/tinted-theming/base16-rofi"
+themes-dir = "themes"
+theme-file-extension = ".rasi"

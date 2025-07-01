@@ -6,6 +6,7 @@ set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -x NVM_DIR ~/.nvm
 set -x MANPAGER "nvim +Man!"
 set -x TINTED_TMUX_OPTION_STATUSBAR 1
+set -x GPG_TTY $tty
 
 # Fish compatibility wrapper for NVM
 function nvm
