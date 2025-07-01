@@ -1,5 +1,5 @@
 configuration {
-	font: "Fira Code 12";
+	font: "Fira Code Nerd Font 12";
 
   /* Vim bindings */
   kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
@@ -23,3 +23,21 @@ configuration {
 }
 
 @theme "~/.local/share/tinted-theming/tinty/base16-rofi-themes-file.rasi"
+
+window {
+  border: none;
+  padding: 4px;
+  background-image: linear-gradient(45deg, #955bbc, #cdffff);
+}
+
+mainbox {
+  background-color: @background;
+}
+
+inputbar {
+  children: [ textbox-prompt-colon, entry ];
+}
+
+textbox-prompt-colon {                                                
+  str: "->";
+}
