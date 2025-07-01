@@ -19,16 +19,18 @@ EOF
   exit 1
 }
 
+device="intel_backlight"
+
 send_notification() {
   local delta=$1
-  brightness=$(brightnessctl info | grep -oP "(?<=\()\d+(?=%)" | cat)
+  brightness=$(brightnessctl -d $device info | grep -oP "(?<=\()\d+(?=%)" | cat)
   brightness_level=$((brightness / 15 + 1))
   ico="$HOME/.config/dunst/icons/brightness-${brightness_level:-4}.svg"
   notify-send -a "brightnesscontrol" -r 1 -t 800 -h int:value:"${brightness}" -i "${ico}" "Brightness" "${brightness} (${delta})"
 }
 
 get_brightness() {
-  brightnessctl -m | grep -o '[0-9]\+%' | head -c-2
+  brightnessctl -d $device -m | grep -o '[0-9]\+%' | head -c-2
 }
 
 step="${2:-5}"
@@ -44,7 +46,7 @@ i | -i)
     # increase the backlight by 1% if less than 10%
     [ "${brightness}" -lt 10 ] && step=1
 
-    brightnessctl set "${step}"%+
+    brightnessctl -d $device set "${step}"%+
     delta="+${step}%"
   fi
 
@@ -60,7 +62,7 @@ d | -d)
     # decrease the backlight by 1% if less than 10%
     [ "${brightness}" -le 10 ] && step=1
 
-    brightnessctl set "${step}"%-
+    brightnessctl -d $device set "${step}"%-
     # escape "-"
     delta="\-${step}%"
   fi
