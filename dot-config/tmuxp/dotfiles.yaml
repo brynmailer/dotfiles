@@ -12,4 +12,4 @@ windows:
     - clear
   - focus: 'true'
     shell_command:
-    - nvim .
+    - nvim -c "Telescope find_files"

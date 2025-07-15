@@ -2,12 +2,20 @@ session_name: grassrootz-public
 start_directory: ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
 windows:
 - focus: 'true'
-  layout: 6781,208x67,0,0,12
-  window_name: main
+  layout: 6d9f,279x79,0,0,10
+  window_name: editor
   options: {}
   panes:
-  - nvim .
-- layout: d4c1,208x67,0,0[208x33,0,0,10,208x33,0,34,11]
+  - nvim -c "Telescope find_files"
+- layout: c7bc,279x79,0,0{161x79,0,0,13,117x79,162,0,14}
+  window_name: agent
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command:
+    - aider
+  - pane
+- layout: f12b,279x79,0,0[279x39,0,0,11,279x39,0,40,12]
   window_name: servers
   options: {}
   panes:
