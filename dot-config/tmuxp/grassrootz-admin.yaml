@@ -1,0 +1,20 @@
+session_name: grassrootz-admin
+start_directory: ~/Projects/grassrootz/grassrootz.admin.client
+windows:
+- focus: 'true'
+  layout: dae1,279x79,0,0,4
+  window_name: main
+  options: {}
+  panes:
+  - nvim .
+- layout: cfb6,279x79,0,0{160x79,0,0,5,118x79,161,0,12}
+  window_name: ai
+  options: {}
+  panes:
+  - aider
+  - pane
+- layout: dae4,279x79,0,0,7
+  window_name: servers
+  options: {}
+  panes:
+  - npm run start
