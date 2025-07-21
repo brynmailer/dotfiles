@@ -10,3 +10,4 @@ dot-local/bin/*
 dot-config/fish/conf.d/*
 
 !dot-config/fish/conf.d/rustup.fish
+.aider*
