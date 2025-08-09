@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+config=~/.config/hypr/hyprland.conf
+
+if [ $1 = "docked"] then
+  export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
+  export __GLX_VENDOR_LIBRARY_NAME=nvidia
+  export LIBVA_DRIVER_NAME=nvidia
+
+  config=~/.config/hypr/docked.conf
+else
+  export AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
+  export __GLX_VENDOR_LIBRARY_NAME=mesa
+  export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+fi
+
+eval "exec uwsm start -N \"Hyprland\" -D Hyprland -C \"An intelligent dynamic tiling Wayland compositor\" -- Hyprland -c $config"

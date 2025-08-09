@@ -5,6 +5,7 @@ dot-local/bin/*
 
 !dot-local/bin/brightnesscontrol
 !dot-local/bin/volumecontrol
+!dot-local/bin/hypr-launch
 
 
 dot-config/fish/conf.d/*
