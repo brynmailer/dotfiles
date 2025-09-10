@@ -2,7 +2,6 @@ set -g fish_greeting
 
 fish_add_path ~/.local/bin
 
-set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 set -x NVM_DIR ~/.nvm
 set -x MANPAGER "nvim +Man!"
 set -x TINTED_TMUX_OPTION_STATUSBAR 1
@@ -41,8 +40,16 @@ function open-workspace
   end
 end
 
+function keychain-add
+    set selected_key (ls -I 'known*' -I '*.pub' ~/.ssh | fzf)
+    if test -n "$selected_key"
+        keychain --eval ~/.ssh/$selected_key | source
+    end
+end
+
 if status is-interactive
   fish_vi_key_bindings
 
   bind -M insert ctrl-f open-workspace
+  bind -M insert ctrl-s keychain-add
 end

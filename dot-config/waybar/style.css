@@ -52,7 +52,7 @@
 #cpu,
 #memory,
 #network,
-#pulseaudio,
+#wireplumber,
 #temperature,
 #tray,
 #backlight,
@@ -116,7 +116,7 @@
 	margin-left: 35pt;
 }
 
-#pulseaudio {
+#wireplumber {
 	background: @sound;
 	color: @white;
 }
