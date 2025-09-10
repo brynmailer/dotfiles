@@ -44,6 +44,7 @@ function keychain-add
     set selected_key (ls -I 'known*' -I '*.pub' ~/.ssh | fzf)
     if test -n "$selected_key"
         keychain --eval ~/.ssh/$selected_key | source
+        commandline -f repaint
     end
 end
 
