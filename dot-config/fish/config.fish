@@ -3,7 +3,7 @@ set -g fish_greeting
 fish_add_path ~/.local/bin
 
 set -x NVM_DIR ~/.nvm
-set -x MANPAGER "nvim +Man!"
+set -x PAGER "nvimpager"
 set -x TINTED_TMUX_OPTION_STATUSBAR 1
 set -x GPG_TTY $tty
 

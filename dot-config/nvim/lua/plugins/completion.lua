@@ -5,11 +5,6 @@ return {
       -- LSP support
       { "hrsh7th/cmp-nvim-lsp" },
 
-      -- Snippets
-      { "L3MON4D3/LuaSnip" },
-      { "saadparwaiz1/cmp_luasnip" },
-      { "rafamadriz/friendly-snippets" },
-
       -- Autopairs
       {
         "windwp/nvim-autopairs",
@@ -22,12 +17,8 @@ return {
     },
     config = function()
       local cmp = require("cmp")
-      local luasnip = require("luasnip")
       local lspkind = require("lspkind")
       local autopairs = require("nvim-autopairs.completion.cmp")
-
-      -- Load friendly-snippets
-      require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
         experimental = {
@@ -54,15 +45,8 @@ return {
           documentation = cmp.config.window.bordered(),
         },
 
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-
         sources = {
           { name = "nvim_lsp" },
-          { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
         },
@@ -80,8 +64,6 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
             else
               fallback()
             end
@@ -90,8 +72,6 @@ return {
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
             else
               fallback()
             end
