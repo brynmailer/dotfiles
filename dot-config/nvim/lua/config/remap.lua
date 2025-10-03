@@ -36,3 +36,6 @@ end)
 vim.keymap.set("n", "<leader>lr", function()
   vim.cmd("LspRestart")
 end)
+
+-- terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
