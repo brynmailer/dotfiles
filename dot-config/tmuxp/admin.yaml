@@ -16,7 +16,7 @@ windows:
     - opencode
   - pane
 - layout: dae4,279x79,0,0,7
-  window_name: server
+  window_name: terms
   options: {}
   panes:
   - npm run start

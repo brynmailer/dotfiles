@@ -1,0 +1,17 @@
+session_name: cnc-ctrl
+start_directory: ~/Projects/cnc-ctrl
+windows:
+- focus: 'true'
+  layout: 5da7,279x71,0,0,18
+  window_name: editor
+  options: {}
+  panes:
+  - nvim
+- layout: c020,279x71,0,0{84x71,0,0,19,194x71,85,0,20}
+  window_name: terms
+  options: {}
+  panes:
+  - shell_command:
+    - cd ~/Tools/Simulator/build
+    - clear
+  - focus: 'true'
