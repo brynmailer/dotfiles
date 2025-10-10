@@ -1,4 +1,4 @@
-session_name: grassrootz-admin
+session_name: admin
 start_directory: ~/Projects/grassrootz/grassrootz.admin.client
 windows:
 - focus: 'true'
@@ -6,24 +6,17 @@ windows:
   window_name: editor
   options: {}
   panes:
-  - nvim -c "Telescope find_files"
+  - nvim
 - layout: cfb6,279x79,0,0{160x79,0,0,5,118x79,161,0,12}
   window_name: agent
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-    - aider
-  - pane
-  window_name: agent
-  options: {}
-  panes:
-  - focus: 'true'
-    shell_command:
-    - aider
+    - opencode
   - pane
 - layout: dae4,279x79,0,0,7
-  window_name: servers
+  window_name: server
   options: {}
   panes:
   - npm run start

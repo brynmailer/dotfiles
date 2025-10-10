@@ -1,4 +1,4 @@
-session_name: grassrootz-public
+session_name: public
 start_directory: ~/Projects/grassrootz/grassrootz.public.client/Grassrootz.Public.Web
 windows:
 - focus: 'true'
@@ -6,14 +6,14 @@ windows:
   window_name: editor
   options: {}
   panes:
-  - nvim -c "Telescope find_files"
+  - nvim
 - layout: c7bc,279x79,0,0{161x79,0,0,13,117x79,162,0,14}
   window_name: agent
   options: {}
   panes:
   - focus: 'true'
     shell_command:
-    - aider
+    - opencode
   - pane
 - layout: f12b,279x79,0,0[279x39,0,0,11,279x39,0,40,12]
   window_name: servers
