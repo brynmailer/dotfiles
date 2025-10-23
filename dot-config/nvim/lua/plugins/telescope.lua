@@ -40,7 +40,7 @@ return {
       telescope.load_extension("file_browser")
 
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope find files" })
+      vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope find files find_command=rg,--ignore,--hidden,--files" })
       vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope live grep" })
       vim.keymap.set("n", "<leader>pg", builtin.grep_string, { desc = "Telescope grep string" })
 
