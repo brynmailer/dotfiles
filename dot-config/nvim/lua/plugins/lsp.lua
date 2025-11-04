@@ -6,7 +6,7 @@ return {
       { "williamboman/mason-lspconfig.nvim" },
       { "hrsh7th/cmp-nvim-lsp" },
     },
-    config = function()
+    config = function(_, opts)
       local lspconfig = require("lspconfig")
 
       -- Mason setup
