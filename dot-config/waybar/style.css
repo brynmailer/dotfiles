@@ -34,6 +34,7 @@
 	padding: 0;
 	box-shadow: none;
 	text-shadow: none;
+  font-family: "Fira Code Nerd Font", sans-serif;
 	-gtk-icon-shadow: none;
 }
 

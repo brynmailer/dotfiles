@@ -54,6 +54,5 @@ if status is-interactive
   bind -M insert ctrl-f open-workspace
   bind -M insert ctrl-s keychain-add
 
-  keychain --quiet --noask ~/.ssh/personal
   source ~/.keychain/(hostname)-fish
 end
