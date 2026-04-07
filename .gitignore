@@ -1,14 +1,12 @@
 lazy-lock.json
 
 
-dot-local/bin/*
+dot-local/*
 
 !dot-local/bin/brightnesscontrol
 !dot-local/bin/volumecontrol
 !dot-local/bin/hypr-launch
 
-
 dot-config/fish/conf.d/*
-
+dot-config/fish/fish_variables
 !dot-config/fish/conf.d/rustup.fish
-.aider*
