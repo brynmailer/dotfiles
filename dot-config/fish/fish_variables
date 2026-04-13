@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:17840
-SETUVAR --export SSH_AUTH_SOCK:/home/bryn/\x2essh/agent/s\x2e2VfYzkQVcq\x2eagent\x2etQKBeqwwo3
+SETUVAR --export SSH_AGENT_PID:3888
+SETUVAR --export SSH_AUTH_SOCK:/home/bryn/\x2essh/agent/s\x2e2VfYzkQVcq\x2eagent\x2eIPNId1dF1F
 SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/usr/local/go/bin\x1e/home/bryn/\x2envm/versions/node/v24\x2e14\x2e1/bin\x1e/home/bryn/\x2envm/versions/node/v22\x2e17\x2e0/bin\x1e/home/bryn/\x2envm/versions/node/v16\x2e19\x2e0/bin\x1e/home/bryn/\x2econfig/nvm/versions/node/v16\x2e19\x2e0/bin\x1e/home/bryn/\x2econfig/nvm/versions/node/v24\x2e0\x2e1/bin\x1e/home/bryn/\x2elocal/bin\x1e/home/bryn/\x2econfig/nvm/versions/node/v16\x2e9\x2e1/bin
+SETUVAR fish_user_paths:/home/bryn/\x2erustup/toolchains/esp/xtensa\x2desp\x2delf/esp\x2d15\x2e2\x2e0_20250920/xtensa\x2desp\x2delf/bin\x1e/usr/local/go/bin\x1e/home/bryn/\x2envm/versions/node/v24\x2e14\x2e1/bin\x1e/home/bryn/\x2envm/versions/node/v22\x2e17\x2e0/bin\x1e/home/bryn/\x2envm/versions/node/v16\x2e19\x2e0/bin\x1e/home/bryn/\x2econfig/nvm/versions/node/v16\x2e19\x2e0/bin\x1e/home/bryn/\x2econfig/nvm/versions/node/v24\x2e0\x2e1/bin\x1e/home/bryn/\x2elocal/bin\x1e/home/bryn/\x2econfig/nvm/versions/node/v16\x2e9\x2e1/bin

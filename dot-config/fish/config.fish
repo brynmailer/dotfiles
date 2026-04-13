@@ -41,7 +41,7 @@ function open-workspace
 end
 
 function keychain-add
-    set selected_key (ls -I 'known*' -I '*.pub' ~/.ssh | fzf)
+    set selected_key (ls -I 'config' -I 'agent' -I 'known*' -I '*.pub' ~/.ssh | fzf)
     if test -n "$selected_key"
         keychain --eval ~/.ssh/$selected_key | source
         commandline -f repaint
