@@ -98,8 +98,8 @@ nvm install --lts --no-progress
 nvm alias default 'lts/*' >/dev/null
 
 # --- npm globals ---
-log "npm i -g @anthropic-ai/claude-code claude-mermaid prettierd"
-npm install -g @anthropic-ai/claude-code claude-mermaid prettierd
+log "npm i -g @anthropic-ai/claude-code claude-mermaid @fsouza/prettierd"
+npm install -g @anthropic-ai/claude-code claude-mermaid @fsouza/prettierd
 
 # --- cargo installs ---
 log "cargo install tinty"
