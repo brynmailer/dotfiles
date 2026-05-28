@@ -2,9 +2,11 @@ set -g fish_greeting
 
 fish_add_path ~/.local/bin
 
-set -x PAGER "nvimpager"
-set -x TINTED_TMUX_OPTION_STATUSBAR 1
-set -x GPG_TTY $tty
+set -gx PAGER "nvimpager"
+set -gx TINTED_TMUX_OPTION_STATUSBAR 1
+set -gx GPG_TTY $tty
+set -gx AWS_PROFILE predastore
+set -gx BD_ISSUE_PREFIX mulga-bm
 
 set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 
