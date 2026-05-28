@@ -1,3 +1,0 @@
-#!/usr/bin/env fish
-
-tmuxp load -y $(fd --format "{/.}" -L -e yaml --search-path ~/.config/tmuxp | fzf) &> /dev/null

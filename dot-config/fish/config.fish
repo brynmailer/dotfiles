@@ -33,13 +33,6 @@ function load_nvm
 	end
 end
 
-# Fzf tmuxp workspaces
-function open-workspace
-  if test "$TERM_PROGRAM" != "tmux"
-    fzf-workspaces
-  end
-end
-
 function keychain-add
     set selected_key (ls -I 'config' -I 'agent' -I 'known*' -I '*.pub' ~/.ssh | fzf)
     if test -n "$selected_key"
@@ -51,7 +44,6 @@ end
 if status is-interactive
   fish_vi_key_bindings
 
-  bind -M insert ctrl-f open-workspace
   bind -M insert ctrl-s keychain-add
 
   source ~/.keychain/(hostname)-fish
