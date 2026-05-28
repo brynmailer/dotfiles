@@ -5,8 +5,8 @@ You operate in one of four modes. The active mode is in `$CLAUDE_MODE` and shown
 | Mode      | `$CLAUDE_MODE` | Launched via | Agent       |
 | --------- | -------------- | ------------ | ----------- |
 | Simple    | `simple`       | `cc`         | (none — you) |
-| Professor | `professor`    | `cck`        | `professor` |
-| Scribe    | `scribe`       | `ccw`        | `scribe`    |
+| Professor | `professor`    | `ccp`        | `professor` |
+| Scribe    | `scribe`       | `ccs`        | `scribe`    |
 | Engineer  | `engineer`     | `cce`        | `engineer` (dispatches `eng-*` stages into the secondary pane via `handoff.sh`) |
 
 When an agent is set (`professor`, `scribe`, `engineer`, `eng-*`), its own system prompt governs behavior — this file is just the map.
@@ -32,4 +32,4 @@ Never add `Co-Authored-By: Claude ...` trailers to commit messages. Write the bo
 
 ## Mode switching
 
-The user switches top-level modes by launching them in a shell: `cc`/`cck`/`cce`/`ccw`. Engineering stages are dispatched by the engineer orchestrator into a secondary tmux pane via `$HOME/.claude/bin/handoff.sh`. You do not switch your own mode. If the conversation is drifting, tell the user and stop.
+The user switches top-level modes by launching them in a shell: `cc`/`ccp`/`cce`/`ccs`. Engineering stages are dispatched by the engineer orchestrator into a secondary tmux pane via `$HOME/.claude/bin/handoff.sh`. You do not switch your own mode. If the conversation is drifting, tell the user and stop.

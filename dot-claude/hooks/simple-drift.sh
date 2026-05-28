@@ -2,7 +2,7 @@
 # UserPromptSubmit hook — simple-mode scope-creep detector.
 # Active only when $CLAUDE_MODE is unset or "simple".
 # First trip: inject nudge via systemMessage. Second trip in the same session: block the prompt.
-# To unblock: switch modes (cck/cce/ccw) or rephrase.
+# To unblock: switch modes (ccp/cce/ccs) or rephrase.
 
 set -euo pipefail
 
@@ -30,9 +30,9 @@ fi
 
 read -r -d '' NUDGE <<'EOF' || true
 [drift detector] This prompt looks like it leaves simple-mode scope (architectural language or open-ended/exploratory phrasing detected). Consider switching modes:
-  cck — professor (concept building, socratic)
+  ccp — professor (concept building, socratic)
   cce — engineer  (design + implementation)
-  ccw — scribe    (article structure, source aggregation)
+  ccs — scribe    (article structure, source aggregation)
 If this really is a rote task, rephrase to avoid trigger words and re-submit.
 EOF
 

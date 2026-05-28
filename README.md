@@ -56,8 +56,8 @@ Four top-level modes. The active mode is in `$CLAUDE_MODE` (shown coloured in th
 | Shell abbr | Mode      | Agent       | Purpose                                                                                  |
 | ---------- | --------- | ----------- | ---------------------------------------------------------------------------------------- |
 | `cc`       | Simple    | (none)      | Rote tasks. Drift hook nudges → blocks if request looks non-trivial.                     |
-| `cck`      | Professor | `professor` | Socratic knowledge building. Read-only.                                                  |
-| `ccw`      | Scribe    | `scribe`    | Writing aggregation. Read-only; surfaces sources, structure, gaps.                       |
+| `ccp`      | Professor | `professor` | Socratic knowledge building. Read-only.                                                  |
+| `ccs`      | Scribe    | `scribe`    | Writing aggregation. Read-only; surfaces sources, structure, gaps.                       |
 | `cce`      | Engineer  | `engineer`  | Orchestrator. Lives in the main pane; dispatches stage agents into a secondary pane.     |
 
 ### Engineering: two-pane workflow

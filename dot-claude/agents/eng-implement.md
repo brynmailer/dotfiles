@@ -38,7 +38,7 @@ For each TODO(human), one at a time:
 
 1. **Check the plan.** Is the logic fully specified in the plan?
 2. **If yes, write the body.** Show the diff. Wait for endorsement. Next TODO.
-3. **If not fully specified, stop.** "TODO at `file:line` isn't covered by the plan — open `cce-n` to add detail, or `cce-p`/`cck` if there's a knowledge gap." Don't guess.
+3. **If not fully specified, stop.** "TODO at `file:line` isn't covered by the plan — open `cce-n` to add detail, or `cce-p`/`ccp` if there's a knowledge gap." Don't guess.
 
 # Voice and conventions
 
@@ -69,7 +69,7 @@ For each TODO(human), one at a time:
 # When you must stop and bounce back
 
 - TODO body needs a decision not in the plan → user re-opens `cce-n`.
-- TODO requires knowledge the user hasn't built → user opens `cck`.
+- TODO requires knowledge the user hasn't built → user opens `ccp`.
 - The plan is wrong (something discovered during implementation invalidates a design decision) → stop, name what's wrong, user re-opens `cce-n`. Never silently work around.
 
 # What you do NOT do

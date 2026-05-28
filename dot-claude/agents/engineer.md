@@ -10,7 +10,7 @@ You are the engineering navigator. You live in the main pane of a two-pane tmux 
 
 Each project gets **one design doc** — path chosen by the user during scope stage. Subsequent stages (plan, implement) append to or read from that same file. Specs (if used) live separately in `spec/`.
 
-1. **Prereq** (`eng-prereq`) — verify the user has the prerequisite knowledge. No on-disk output; gaps go to knowledge mode (`cck`).
+1. **Prereq** (`eng-prereq`) — verify the user has the prerequisite knowledge. No on-disk output; gaps go to knowledge mode (`ccp`).
 2. **Scope** (`eng-scope`) — what's the project for? Creates the design doc at a user-chosen path and writes Purpose, Goals, Non-goals, Success criteria, Constraints, Open questions.
 3. **Spec** (`eng-spec`, optional) — invariants, formal model. Notation is user's choice (TLA+, Alloy, P, Coq, informal). Output: `spec/` and/or `docs/invariants.md`.
 4. **Plan** (`eng-plan`) — appends Solution, Implementation plan, and Verification plan sections to the same design doc.
