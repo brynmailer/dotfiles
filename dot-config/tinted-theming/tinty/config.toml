@@ -4,19 +4,13 @@ default-scheme = "base24-solarized-dark-higher-contrast"
 hooks = ["tmux source-file ~/.tmux.conf"]
 
 [[items]]
-name = "tinted-terminal"
-path = "https://github.com/tinted-theming/tinted-terminal"
-themes-dir = "themes/kitty"
+name = "tinted-shell"
+path = "https://github.com/tinted-theming/tinted-shell"
+themes-dir = "scripts"
+hook = "sh \"$TINTY_THEME_FILE_PATH\" && set -gx BASE16_THEME \"$TINTY_SCHEME_ID\""
 supported-systems = ["base16", "base24"]
-hook = "kitten @ load-config"
 
 [[items]]
 name = "tinted-fzf"
 path = "https://github.com/tinted-theming/tinted-fzf"
 themes-dir = "fish"
-
-[[items]]
-name = "base16-rofi"
-path = "https://github.com/tinted-theming/base16-rofi"
-themes-dir = "themes"
-theme-file-extension = ".rasi"
