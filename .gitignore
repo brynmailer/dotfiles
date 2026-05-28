@@ -10,3 +10,4 @@ dot-local/*
 dot-config/fish/conf.d/*
 dot-config/fish/fish_variables
 !dot-config/fish/conf.d/rustup.fish
+!dot-config/fish/conf.d/claude-modes.fish
