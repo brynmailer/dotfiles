@@ -4,6 +4,7 @@
   "editorMode": "vim",
   "syntaxHighlightingDisabled": false,
   "skipDangerousModePermissionPrompt": true,
+  "defaultMode": "bypassPermissions",
   "outputStyle": "candid",
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
