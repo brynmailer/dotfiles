@@ -7,9 +7,9 @@ function __cc_launch -d "Launch claude with CLAUDE_MODE set and optional --agent
     set -l agent $argv[2]
     set -e argv[1 2]
     if test -n "$agent"
-        env CLAUDE_MODE=$mode claude --agent $agent $argv
+        env CLAUDE_MODE=$mode claude --dangerously-skip-permissions --agent $agent $argv
     else
-        env CLAUDE_MODE=$mode claude $argv
+        env CLAUDE_MODE=$mode claude --dangerously-skip-permissions $argv
     end
 end
 
