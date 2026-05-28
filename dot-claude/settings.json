@@ -2,7 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(tmux:*)",
-      "Bash(/home/bryn/.claude/bin/handoff.sh:*)"
+      "Bash($HOME/.claude/bin/handoff.sh:*)"
     ]
   },
   "model": "opus[1m]",
