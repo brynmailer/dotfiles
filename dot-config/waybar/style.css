@@ -34,7 +34,7 @@
 	padding: 0;
 	box-shadow: none;
 	text-shadow: none;
-  font-family: "Fira Code Nerd Font", sans-serif;
+  font-family: "Fira Code", "Symbols Nerd Font", sans-serif;
 	-gtk-icon-shadow: none;
 }
 
@@ -42,7 +42,7 @@
 #waybar {
 	background: rgba(47, 42, 63, 0.8);
 	color: @white;
-	font-family: Fira Code Mono, Siji;
+	font-family: "Fira Code", "Symbols Nerd Font";
 	font-size: 11pt;
 	/*font-weight: bold;*/
 }
