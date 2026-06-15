@@ -6,6 +6,7 @@ dot-local/*
 !dot-local/bin/brightnesscontrol
 !dot-local/bin/volumecontrol
 !dot-local/bin/hypr-launch
+!dot-local/bin/typst-figure
 
 dot-config/fish/conf.d/*
 dot-config/fish/fish_variables

@@ -14,15 +14,34 @@ return {
 
       -- Visual stuff
       { "onsails/lspkind.nvim" },
+
+      -- Snippets
+      {
+        "L3MON4D3/LuaSnip",
+        build = "make install_jsregexp",
+      },
+      { "saadparwaiz1/cmp_luasnip" },
     },
     config = function()
       local cmp = require("cmp")
       local lspkind = require("lspkind")
+      local luasnip = require("luasnip")
       local autopairs = require("nvim-autopairs.completion.cmp")
+
+      -- Load lua snippets from ~/.config/nvim/snippets/<filetype>.lua
+      require("luasnip.loaders.from_lua").load({
+        paths = vim.fn.stdpath("config") .. "/snippets",
+      })
 
       cmp.setup({
         experimental = {
           ghost_text = true,
+        },
+
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
         },
 
         formatting = {
@@ -47,6 +66,7 @@ return {
 
         sources = {
           { name = "nvim_lsp" },
+          { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
         },
@@ -64,6 +84,8 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
+            elseif luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
             else
               fallback()
             end
@@ -72,8 +94,17 @@ return {
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
             else
               fallback()
+            end
+          end, { "i", "s" }),
+
+          -- Cycle choice nodes (e.g. the figure's svg/jpg/png extension)
+          ["<C-l>"] = cmp.mapping(function()
+            if luasnip.choice_active() then
+              luasnip.change_choice(1)
             end
           end, { "i", "s" }),
         }),

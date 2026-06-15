@@ -1,15 +1,8 @@
 -- typst (tinymist LSP) buffer-local config
 
--- Live preview: start tinymist's incremental preview server (updates on every
--- keystroke) without auto-opening the default browser, then open the served
--- URL in a dedicated qutebrowser window. Hyprland tiles that new window in the
--- focused workspace, so the preview sits as a side pane next to the editor
--- rather than as a tab in the browser on another workspace.
---
--- The server persists for the whole nvim session, so re-pressing the key after
--- closing the browser must NOT call doStartPreview again: a second start would
--- re-bind the same data-plane port and abort tinymist. Cache the URL on first
--- start and just reopen the window on later presses.
+-- Live preview: start tinymist's incremental preview without opening the
+-- default browser, then show the URL in a tiled qutebrowser window. Cache it
+-- so reopening a closed window doesn't restart (and abort) the server.
 vim.keymap.set("n", "<leader>fp", function()
   local function open(url)
     vim.fn.jobstart({ "qutebrowser", "--target", "window", url }, { detach = true })
@@ -48,3 +41,18 @@ vim.keymap.set("n", "<leader>fp", function()
     end
   )
 end, { buffer = true, silent = true, desc = "Typst: live preview (qutebrowser side pane)" })
+
+-- Edit the figure path under the cursor in Inkscape; typst-figure creates it
+-- from a blank template if missing. Saving re-renders it in the preview.
+vim.keymap.set("n", "<leader>ff", function()
+  local fname = vim.fn.expand("<cfile>")
+  if fname == "" then
+    vim.notify("no figure path under cursor", vim.log.levels.WARN)
+    return
+  end
+  -- Resolve relative to the document dir, as typst resolves image() paths.
+  if not vim.startswith(fname, "/") then
+    fname = vim.fn.expand("%:p:h") .. "/" .. fname
+  end
+  vim.fn.jobstart({ "typst-figure", fname }, { detach = true })
+end, { buffer = true, silent = true, desc = "Typst: edit figure under cursor (Inkscape)" })
