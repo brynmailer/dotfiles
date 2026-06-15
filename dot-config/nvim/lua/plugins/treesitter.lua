@@ -1,4 +1,4 @@
-local languages = { "lua", "rust", "go", "html" }
+local languages = { "lua", "rust", "go", "html", "typst" }
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",

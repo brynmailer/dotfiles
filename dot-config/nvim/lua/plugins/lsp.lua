@@ -12,6 +12,7 @@ return {
       -- Mason setup
       require("mason").setup({})
       require("mason-lspconfig").setup({
+        ensure_installed = { "gopls", "lua_ls", "marksman", "rust_analyzer", "tinymist" },
         handlers = {
           function(server_name)
             lspconfig[server_name].setup({
