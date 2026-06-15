@@ -7,18 +7,33 @@ return {
       { "hrsh7th/cmp-nvim-lsp" },
     },
     config = function(_, opts)
-      local lspconfig = require("lspconfig")
-
-      -- Mason setup
+      -- mason-lspconfig v2 auto-enables installed servers via vim.lsp.enable().
+      -- The old setup({ handlers = ... }) / lspconfig[server].setup() API is gone;
+      -- per-server config now goes through vim.lsp.config() (Neovim 0.11 native).
       require("mason").setup({})
       require("mason-lspconfig").setup({
         ensure_installed = { "gopls", "lua_ls", "marksman", "rust_analyzer", "tinymist" },
-        handlers = {
-          function(server_name)
-            lspconfig[server_name].setup({
-              capabilities = require("cmp_nvim_lsp").default_capabilities()
-            })
-          end,
+      })
+
+      -- Apply cmp completion capabilities to every server (merged via the '*' default).
+      vim.lsp.config("*", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
+      -- tinymist: background "primary" preview on a fixed port that follows the
+      -- focused .typ file, so one qutebrowser pane at http://127.0.0.1:23635
+      -- tracks the current doc. ftplugin/typst.lua's <leader>fp opens that pane.
+      vim.lsp.config("tinymist", {
+        init_options = {
+          preview = {
+            background = {
+              enabled = true,
+              args = {
+                "--data-plane-host=127.0.0.1:23635",
+                "--invert-colors=auto",
+              },
+            },
+          },
         },
       })
 
