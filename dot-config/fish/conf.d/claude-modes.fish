@@ -2,15 +2,11 @@
 # Each abbreviation exports CLAUDE_MODE (drives the statusline color)
 # and selects an --agent (sets the session's system prompt).
 
-function __cc_launch -d "Launch claude with CLAUDE_MODE set and optional --agent"
+function __cc_launch -d "Launch claude with CLAUDE_MODE set and an --agent"
     set -l mode $argv[1]
     set -l agent $argv[2]
     set -e argv[1 2]
-    if test -n "$agent"
-        env CLAUDE_MODE=$mode claude --dangerously-skip-permissions --agent $agent $argv
-    else
-        env CLAUDE_MODE=$mode claude --dangerously-skip-permissions $argv
-    end
+    env CLAUDE_MODE=$mode claude --dangerously-skip-permissions --agent $agent $argv
 end
 
 # Top-level modes — stage agents are dispatched by the engineer orchestrator
