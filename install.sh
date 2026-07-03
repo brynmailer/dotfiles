@@ -136,3 +136,8 @@ log "done."
 log "next: open a new terminal (fish), then in tmux press prefix+I to install plugins."
 [ "$MINIMAL" -eq 1 ] && log "(minimal: skipped Hyprland/Waybar/SDDM/etc.)"
 [ "$OS" = arch ] && [ "$MINIMAL" -eq 0 ] && log "reboot to start sddm/networkmanager/bluetooth (or 'sudo systemctl start' them now)."
+
+# The trailing conditionals above return non-zero when their guard is false
+# (e.g. any minimal install), which would make the script exit non-zero
+# despite success. Exit explicitly so `install.sh` reflects real status.
+exit 0
