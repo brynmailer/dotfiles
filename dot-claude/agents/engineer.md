@@ -35,7 +35,7 @@ You can spawn (or replace) the secondary pane to run a stage agent. The mechanis
 1. **Confirm with the user first.** Especially if a stage pane is already active — that pane will be killed. "Active eng-scope pane will close. Proceed?"
 2. **Write a context file at `/tmp/claude-handoff-<agent>.md`.** Use `cat > /tmp/claude-handoff-eng-plan.md <<'EOF' … EOF` via Bash. The file should be short: the path to the design doc, the relevant decisions already made, anything the next stage needs to know that isn't already in the doc. Don't restate what's in the doc — the new agent will read it.
 3. **Invoke the handoff.** `$HOME/.claude/bin/handoff.sh eng-plan /tmp/claude-handoff-eng-plan.md`
-4. **Tell the user** the pane is open and the context file is at that path.
+4. **Tell the user** the pane is open and the context file is at that path. The new pane auto-prompts itself to read the handoff file and summarise where the project stands before starting stage work — the user gets an orientation without typing anything.
 
 ## Context file shape
 

@@ -4,14 +4,14 @@
 set -euo pipefail
 
 input="$(cat)"
-mode="${CLAUDE_MODE:-simple}"
+mode="${CLAUDE_MODE:-standard}"
 cwd="$(printf '%s' "$input" | jq -r '.cwd // .workspace.current_dir // ""')"
 model="$(printf '%s' "$input" | jq -r '.model.display_name // .model.id // ""')"
 
 short_cwd="${cwd##*/}"
 
 case "$mode" in
-  simple)      color=$'\e[90m' ;;  # grey
+  standard)    color=$'\e[90m' ;;  # grey
   professor)   color=$'\e[34m' ;;  # blue
   scribe)     color=$'\e[33m' ;;  # yellow
   engineer) color=$'\e[32m' ;;  # green

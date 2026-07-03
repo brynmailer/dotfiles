@@ -1,11 +1,15 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(tmux:*)",
+      "Bash(/home/bryn/.claude/bin/handoff.sh:*)"
+    ]
+  },
   "model": "opus[1m]",
-  "theme": "dark-ansi",
-  "editorMode": "vim",
-  "syntaxHighlightingDisabled": false,
-  "skipDangerousModePermissionPrompt": true,
-  "defaultMode": "bypassPermissions",
-  "outputStyle": "candid",
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c \"exec $HOME/.claude/hooks/statusline.sh\""
+  },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true
@@ -18,32 +22,16 @@
       }
     }
   },
+  "outputStyle": "candid",
+  "syntaxHighlightingDisabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark-ansi",
+  "editorMode": "vim",
+  "defaultMode": "bypassPermissions",
   "mcpServers": {
     "mermaid": {
       "command": "claude-mermaid"
     }
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bash -c \"exec $HOME/.claude/hooks/statusline.sh\""
-  },
-  "permissions": {
-    "allow": [
-      "Bash(tmux:*)",
-      "Bash(/home/bryn/.claude/bin/handoff.sh:*)"
-    ]
-  },
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c \"exec $HOME/.claude/hooks/simple-drift.sh\"",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  }
+  "tui": "fullscreen"
 }
