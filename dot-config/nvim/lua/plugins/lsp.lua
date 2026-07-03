@@ -24,14 +24,18 @@ return {
       -- focused .typ file, so one qutebrowser pane at http://127.0.0.1:23635
       -- tracks the current doc. ftplugin/typst.lua's <leader>fp opens that pane.
       vim.lsp.config("tinymist", {
+        settings = {
+          formatterProseWrap = true, -- wrap lines in content mode
+          formatterPrintWidth = 100,  -- limit line length to 80 if possible
+          lint = {
+            enabled = true,
+          },
+        },
         init_options = {
           preview = {
             background = {
               enabled = true,
-              args = {
-                "--data-plane-host=127.0.0.1:23635",
-                "--invert-colors=auto",
-              },
+              args = {"--data-plane-host=127.0.0.1:23635", "--invert-colors=never"}
             },
           },
         },
