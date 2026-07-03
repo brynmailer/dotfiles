@@ -41,10 +41,10 @@ if [ "$OS" = debian ] && [ "$MINIMAL" -eq 0 ]; then
 fi
 
 # --- system packages ---
-MIN_ARCH=(fish keychain tmux neovim fzf ripgrep fd git jq stow rustup curl base-devel nvimpager htop github-cli)
-MIN_DEB=(fish keychain tmux neovim fzf ripgrep fd-find git jq stow curl ca-certificates build-essential htop gh)
+MIN_ARCH=(fish tmux neovim fzf ripgrep fd git jq stow rustup curl base-devel nvimpager htop github-cli nodejs npm)
+MIN_DEB=(fish tmux neovim fzf ripgrep fd-find git jq stow curl ca-certificates build-essential htop gh nodejs npm)
 FULL_ARCH=(hyprland hyprpaper hyprpolkitagent xdg-desktop-portal-hyprland
-           waybar rofi dunst sddm uwsm dolphin kitty
+           waybar rofi dunst sddm uwsm dolphin kitty qutebrowser inkscape
            grim slurp wl-clipboard playerctl libnotify
            pipewire pipewire-pulse pipewire-alsa gst-plugin-pipewire wireplumber pamixer
            brightnessctl networkmanager bluez bluez-utils
@@ -82,28 +82,13 @@ fi
 rustup default stable >/dev/null
 rustup component add rustfmt >/dev/null
 
-# --- nvm + node LTS ---
-if [ ! -s "$HOME/.nvm/nvm.sh" ]; then
-  log "installing nvm"
-  git clone --depth 1 https://github.com/nvm-sh/nvm.git "$HOME/.nvm"
-  (cd "$HOME/.nvm" \
-    && git fetch --tags --depth 1 \
-    && git checkout "$(git describe --abbrev=0 --tags --match 'v[0-9]*')")
-fi
-export NVM_DIR="$HOME/.nvm"
-# shellcheck disable=SC1091
-. "$NVM_DIR/nvm.sh"
-log "nvm install --lts"
-nvm install --lts --no-progress
-nvm alias default 'lts/*' >/dev/null
-
-# --- npm globals ---
+# --- npm globals (node comes from the system nodejs/npm packages above) ---
 log "npm i -g @anthropic-ai/claude-code claude-mermaid @fsouza/prettierd"
-npm install -g @anthropic-ai/claude-code claude-mermaid @fsouza/prettierd
+sudo npm install -g @anthropic-ai/claude-code claude-mermaid @fsouza/prettierd
 
 # --- cargo installs ---
-log "cargo install tinty"
-cargo install --locked tinty
+log "cargo install tinty typstyle"
+cargo install --locked tinty typstyle
 
 # --- tpm (tmux plugin manager) ---
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then

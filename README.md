@@ -36,12 +36,12 @@ Uses [Tinty](https://github.com/tinted-theming/tinty) to theme the system.
    ./install.sh --minimal  # SSH-only setup, works on Arch or Debian
    ```
 
-The script detects the OS (Arch via pacman/paru, Debian-based via apt), installs the package set for the chosen mode, bootstraps rustup + nvm (node LTS) + Tinty + tpm, installs the Claude Code CLI and `claude-mermaid`, sets `fish` as your login shell, and runs `stow --dotfiles -t ~ .`. Every step is idempotent — re-running is safe.
+The script detects the OS (Arch via pacman/paru, Debian-based via apt), installs the package set for the chosen mode (including system `nodejs`/`npm`), bootstraps rustup + Tinty + typstyle + tpm, installs the Claude Code CLI and `claude-mermaid`, sets `fish` as your login shell, and runs `stow --dotfiles -t ~ .`. Every step is idempotent — re-running is safe.
 
 ### Modes
 
-- **Full** (Arch only) — installs the Hyprland desktop stack as well: Hyprland, Waybar, Rofi, Dunst, SDDM, UWSM, Dolphin, Kitty, plus `grim`/`slurp`/`wl-clipboard`/`playerctl`/`wireplumber`/`libnotify`.
-- **`--minimal`** — installs only what's needed on a remote SSH box: fish, tmux, neovim, fzf, ripgrep, git, jq, keychain, stow, rustup, nvm + node LTS, Claude Code, `claude-mermaid`, `prettierd`, Tinty, tpm.
+- **Full** (Arch only) — installs the Hyprland desktop stack as well: Hyprland, Waybar, Rofi, Dunst, SDDM, UWSM, Dolphin, Kitty, qutebrowser, Inkscape, plus `grim`/`slurp`/`wl-clipboard`/`playerctl`/`wireplumber`/`libnotify`.
+- **`--minimal`** — installs only what's needed on a remote SSH box: fish, tmux, neovim, fzf, ripgrep, git, jq, stow, rustup, nodejs + npm, Claude Code, `claude-mermaid`, `prettierd`, Tinty, typstyle, tpm.
 
 Full mode is Arch-only because the desktop stack doesn't have practical apt equivalents; running `./install.sh` on Debian without `--minimal` will error.
 
