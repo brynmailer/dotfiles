@@ -51,18 +51,20 @@ The repo is laid out for [GNU Stow](https://www.gnu.org/software/stow/) with `--
 
 ## Claude Code workflow
 
-Four top-level modes. The active mode is in `$CLAUDE_MODE` (shown coloured in the statusline) and drives the simple-mode scope-creep hook.
+Four top-level modes. The active mode is in `$CLAUDE_MODE` (shown coloured in the statusline). Each abbr exports `CLAUDE_MODE` and selects an `--agent`; bare `claude` (no alias) is Standard mode with `$CLAUDE_MODE` unset.
 
-| Shell abbr | Mode      | Agent       | Purpose                                                                                  |
-| ---------- | --------- | ----------- | ---------------------------------------------------------------------------------------- |
-| `cc`       | Simple    | (none)      | Rote tasks. Drift hook nudges → blocks if request looks non-trivial.                     |
-| `ccp`      | Professor | `professor` | Socratic knowledge building. Read-only.                                                  |
-| `ccs`      | Scribe    | `scribe`    | Writing aggregation. Read-only; surfaces sources, structure, gaps.                       |
-| `cce`      | Engineer  | `engineer`  | Orchestrator. Lives in the main pane; dispatches stage agents into a secondary pane.     |
+| Launch       | Mode      | Agent       | Purpose                                                                              |
+| ------------ | --------- | ----------- | ----------------------------------------------------------------------------------- |
+| `claude`     | Standard  | (none)      | Plain Claude Code. Locate, run, edit, search, answer.                               |
+| `ccp`        | Professor | `professor` | Socratic knowledge building. Read-only.                                             |
+| `ccs`        | Scribe    | `scribe`    | Writing aggregation. Read-only; surfaces sources, structure, gaps.                 |
+| `cce`        | Engineer  | `engineer`  | Orchestrator. Lives in the main pane; dispatches stage agents into a secondary pane. |
+
+The mode abbrs launch with `--dangerously-skip-permissions`, and `settings.json` sets `defaultMode: bypassPermissions`, so permission prompts are off by default.
 
 ### Engineering: two-pane workflow
 
-Launch `cce` in a tmux window. The orchestrator lives there. When you're ready for a stage (prereq → scope → (spec) → plan → implement), the orchestrator writes a short context summary to `/tmp/claude-handoff-<agent>.md` and invokes `~/.claude/bin/handoff.sh <agent> <context-file>`, which kills any existing secondary pane, splits horizontally, and launches `claude --agent <agent> --append-system-prompt-file <context-file>`. At most two panes per window, enforced by the script.
+Launch `cce` in a tmux window. The orchestrator lives there. When you're ready for a stage (prereq → scope → (spec) → plan → implement), the orchestrator writes a short context summary to `/tmp/claude-handoff-<agent>.md` and invokes `~/.claude/bin/handoff.sh <agent> <context-file>`, which kills any existing secondary pane, splits horizontally, and launches `claude --agent <agent> --append-system-prompt-file <context-file>`. The new pane also auto-submits a first prompt telling the stage agent to read the handoff file and design doc and summarise where the project stands before starting work — so you get an orientation without typing anything. At most two panes per window, enforced by the script.
 
 **Each project gets one design doc**, path chosen by the user during the scope stage; plan and implement read/append to that same file.
 
@@ -71,16 +73,15 @@ Launch `cce` in a tmux window. The orchestrator lives there. When you're ready f
 ```
 dot-claude/
   CLAUDE.md             # workflow map (loaded every session)
-  settings.json         # base settings + statusline + drift hook + default outputStyle + permissions + MCP servers
+  settings.json         # base settings + statusline + default outputStyle + permissions + MCP servers + LSP plugins
   agents/               # one agent per mode + per engineering stage
   output-styles/        # candid.md (default for every session)
   skills/               # diagram/ — Mermaid validate-render-save process
   bin/                  # handoff.sh — orchestrator's pane-and-agent dispatcher
-  hooks/                # simple-drift.sh, statusline.sh
+  hooks/                # statusline.sh
 ```
 
 ### Setup notes
 
 - `jq`, `claude-mermaid`, and the Claude Code CLI are all installed by `install.sh`. Verify the Mermaid MCP server with `claude mcp list`; live-reload previews open in the browser on ports 3737–3747.
 - Before first `stow`, back up or remove any existing `~/.claude/CLAUDE.md` and `~/.claude/settings.json` — stow won't overwrite real files.
-- The drift hook is silent unless `$CLAUDE_MODE` is `simple` (or unset). First trip nudges; second consecutive trip blocks. To unblock: switch modes, or rephrase to avoid trigger words.
