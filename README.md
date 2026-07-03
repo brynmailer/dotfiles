@@ -1,6 +1,6 @@
 # My dotfiles
 
-![Screen shot](https://example.com)
+![Screenshot](assets/screenshot.png)
 
 My configuration for:
 - Hyprland
@@ -40,7 +40,7 @@ The script detects the OS (Arch via pacman/paru, Debian-based via apt), installs
 
 ### Modes
 
-- **Full** (Arch only) — installs the Hyprland desktop stack as well: Hyprland, Waybar, Rofi, Dunst, SDDM, UWSM, Dolphin, Kitty, qutebrowser, Inkscape, plus `grim`/`slurp`/`wl-clipboard`/`playerctl`/`wireplumber`/`libnotify`.
+- **Full** (Arch only) — installs the Hyprland desktop stack as well: Hyprland, Waybar, Rofi, Dunst, SDDM, UWSM, Dolphin, Kitty, qutebrowser, Inkscape, plus `grim`/`slurp`/`wl-clipboard`/`playerctl`/`wireplumber`/`libnotify`. Also copies the wallpapers from `assets/` to `~/Pictures/`, where hyprpaper reads them.
 - **`--minimal`** — installs only what's needed on a remote SSH box: fish, tmux, neovim, fzf, ripgrep, git, jq, stow, rustup, nodejs + npm, Claude Code, `claude-mermaid`, `prettierd`, Tinty, typstyle, tpm.
 
 Full mode is Arch-only because the desktop stack doesn't have practical apt equivalents; running `./install.sh` on Debian without `--minimal` will error.

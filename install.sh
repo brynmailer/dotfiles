@@ -113,6 +113,13 @@ log "stow --dotfiles -t ~ . (from $REPO_DIR)"
 cd "$REPO_DIR"
 stow --dotfiles -t "$HOME" .
 
+# --- wallpapers (not stowed; copied so hyprpaper can read from ~/Pictures) ---
+if [ "$MINIMAL" -eq 0 ]; then
+  log "copying wallpapers to ~/Pictures"
+  mkdir -p "$HOME/Pictures"
+  cp "$REPO_DIR"/assets/cyber-dragon.png "$REPO_DIR"/assets/sad-bird.png "$HOME/Pictures/"
+fi
+
 # --- services ---
 # User units are enabled via the .wants/ symlinks in dot-config/systemd/user/
 # (ssh-agent on default.target; hyprpaper + waybar on graphical-session.target).
