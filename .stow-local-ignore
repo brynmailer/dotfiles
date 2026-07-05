@@ -1,5 +1,7 @@
 ^/\.git$
 ^/\.gitignore$
+^/\.claude$
+^/\.stow-local-ignore$
 ^/install\.sh$
 ^/README\.md$
 ^/assets$

@@ -20,6 +20,9 @@ fi
 
 log() { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
 
+# Resolve the repo location from the script's own path so this works from any cwd.
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # --- OS detection ---
 . /etc/os-release
 OS=
@@ -108,16 +111,26 @@ if [ "${SHELL:-}" != "$fish_path" ]; then
 fi
 
 # --- stow ---
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-log "stow --dotfiles -t ~ . (from $REPO_DIR)"
-cd "$REPO_DIR"
-stow --dotfiles -t "$HOME" .
+# Explicit -d (stow dir) / package so the target is always $HOME, never the
+# parent of wherever this happens to run. `stow .` infers the stow dir from cwd,
+# which is what scattered stale symlinks into ~/Projects. --restow makes re-runs
+# idempotent (it unstows first, clearing any stale links this repo owns).
+STOW_DIR="$(dirname "$REPO_DIR")"
+PKG="$(basename "$REPO_DIR")"
+log "stow --dotfiles --restow -d $STOW_DIR -t ~ $PKG"
+stow --dotfiles --restow -d "$STOW_DIR" -t "$HOME" "$PKG"
 
 # --- wallpapers (not stowed; copied so hyprpaper can read from ~/Pictures) ---
 if [ "$MINIMAL" -eq 0 ]; then
   log "copying wallpapers to ~/Pictures"
   mkdir -p "$HOME/Pictures"
-  cp "$REPO_DIR"/assets/cyber-dragon.png "$REPO_DIR"/assets/sad-bird.png "$HOME/Pictures/"
+  for wp in cyber-dragon.png sad-bird.png; do
+    if [ -f "$REPO_DIR/assets/$wp" ]; then
+      cp "$REPO_DIR/assets/$wp" "$HOME/Pictures/"
+    else
+      echo "warning: missing wallpaper $REPO_DIR/assets/$wp" >&2
+    fi
+  done
 fi
 
 # --- services ---
